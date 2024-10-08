@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    List<Product> products = new ArrayList<>(Arrays.asList(
+    private List<Product> products = new ArrayList<>(Arrays.asList(
             new Product(101, "Iphone 16", 5000),
             new Product(102, "Iphone 16 plus", 5500),
             new Product(103, "Iphone 17", 6000)));
@@ -25,18 +25,18 @@ public class ProductService {
                 .findFirst().orElse(new Product(100, "No Item", 0));
     }
 
-    public void addProduct(Product prod) {
-        products.add(prod);
+    public void addProduct(Product addedProduct) {
+        products.add(addedProduct);
     }
 
-    public void updateProduct(Product prod) {
+    public void updateProduct(Product updatedProduct) {
         int index = 0;
 
         for (int i = 0; i < products.size(); i++) {
-            if (products.get(i).getProdId() == prod.getProdId())
+            if (products.get(i).getProdId() == updatedProduct.getProdId())
                 index = i;
 
-            products.set(index, prod);
+            products.set(index, updatedProduct);
         }
     }
 
@@ -44,10 +44,10 @@ public class ProductService {
         int index = 0;
 
         for (int i = 0; i < products.size(); i++) {
-            if (products.get(i).getProdId() == prodId)
+            if (products.get(i).getProdId() == prodId) {
                 index = i;
-
-            products.remove(index);
+                products.remove(index);
+            }
         }
     }
 }
