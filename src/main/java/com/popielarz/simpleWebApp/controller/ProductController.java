@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class ProductController {
@@ -13,7 +14,7 @@ public class ProductController {
     ProductService service;
 
     @GetMapping("/products")
-    public List<Product> getProducts() {
+    public Map<Integer, Product> getProducts() {
         return service.getProducts();
     }
 
@@ -34,7 +35,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/products/{prodId}")
-    public void deleteProduct(@PathVariable int prodId){
+    public void deleteProduct(@PathVariable int prodId) {
         service.deleteProduct(prodId);
     }
 

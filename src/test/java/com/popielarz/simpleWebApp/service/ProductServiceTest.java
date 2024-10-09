@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,7 +14,7 @@ class ProductServiceTest {
     @Test
     public void testGetProducts() {
         ProductService productService = new ProductService();
-        List<Product> products = productService.getProducts();
+        Map<Integer, Product> products = productService.getProducts();
         Assertions.assertEquals(3, products.size());
     }
 
@@ -46,7 +47,7 @@ class ProductServiceTest {
         // when
         productService.addProduct(newProduct);
         // then
-        List<Product> products = productService.getProducts();
+        Map<Integer, Product> products = productService.getProducts();
         Assertions.assertEquals(4, products.size());
         Product product104 = productService.getProductsById(104);
         Assertions.assertEquals(104, product104.getProdId());
@@ -61,7 +62,7 @@ class ProductServiceTest {
         // when
         productService.deleteProduct(102);
         // then
-        List<Product> products = productService.getProducts();
+        Map<Integer, Product> products = productService.getProducts();
         Assertions.assertEquals(2, products.size());
         Product product103 = productService.getProductsById(102);
         Assertions.assertEquals(100, product103.getProdId());
