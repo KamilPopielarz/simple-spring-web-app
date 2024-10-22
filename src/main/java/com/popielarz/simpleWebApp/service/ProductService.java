@@ -1,6 +1,8 @@
 package com.popielarz.simpleWebApp.service;
 
 import com.popielarz.simpleWebApp.model.Product;
+import com.popielarz.simpleWebApp.repository.ProductRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
