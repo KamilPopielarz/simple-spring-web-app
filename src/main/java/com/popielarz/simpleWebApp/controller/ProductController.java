@@ -1,20 +1,21 @@
 package com.popielarz.simpleWebApp.controller;
 
 import com.popielarz.simpleWebApp.model.Product;
-import com.popielarz.simpleWebApp.service.ProductService;
+import com.popielarz.simpleWebApp.service.ProductServiceList;
+import com.popielarz.simpleWebApp.service.ProductServiceMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.Map;
 
 @RestController
 public class ProductController {
     @Autowired
-    ProductService service;
+    ProductServiceList service;
 
     @GetMapping("/products")
-    public Map<Integer, Product> getProducts() {
+    public Collection<Product> getProducts() {
         return service.getProducts();
     }
 
