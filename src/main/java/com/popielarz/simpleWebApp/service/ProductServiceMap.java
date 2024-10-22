@@ -4,7 +4,8 @@ import com.popielarz.simpleWebApp.model.Product;
 import com.popielarz.simpleWebApp.service.interfaces.ProductService;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class ProductServiceMap implements ProductService {
