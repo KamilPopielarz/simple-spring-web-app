@@ -2,12 +2,11 @@ package com.popielarz.simpleWebApp.controller;
 
 import com.popielarz.simpleWebApp.model.Product;
 import com.popielarz.simpleWebApp.service.ProductServiceList;
-import com.popielarz.simpleWebApp.service.ProductServiceMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-import java.util.Map;
+import java.util.List;
 
 @RestController
 public class ProductController {
@@ -38,6 +37,11 @@ public class ProductController {
     @DeleteMapping("/products/{prodId}")
     public void deleteProduct(@PathVariable int prodId) {
         service.deleteProduct(prodId);
+    }
+
+    @GetMapping("/products/query/{price}")
+    public List<Product> getProductByPrice(@PathVariable int price) {
+        return service.findByPriceGreaterThan(price);
     }
 
 }
